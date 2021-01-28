@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="text-center">
+  <h1 style="font-size: 30px;">Welcome to Felp!</h1>
+  </div>
+  <ul style="list-style-type: none;">
+  <% @restaurants.each do |restaurant| %>
+    <li>
+      <h2><%= restaurant.name %></h2>
+      <h3><%= restaurant.category.capitalize %></h3>
+      <p><%= restaurant.address %><p>
+      <p><%= restaurant.phone_number %><p>
+    </li>
+    <hr>
+  <% end %>
+  </ul>
+</div>
