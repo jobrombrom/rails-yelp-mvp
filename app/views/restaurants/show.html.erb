@@ -1,0 +1,25 @@
+<div class="container">
+  <h1><%= @restaurant.name %></h1>
+  <% if @restaurant.category == "chinese" %>
+      <h2>🇨🇳 <%= @restaurant.category.capitalize %></h2>
+  <% elsif @restaurant.category == "italian" %>
+      <h2>🇮🇹 <%= @restaurant.category.capitalize %></h2>
+  <% elsif @restaurant.category == "french" %>
+      <h2>🇫🇷 <%= @restaurant.category.capitalize %></h2>
+  <% elsif @restaurant.category == "japanese" %>
+      <h2>🇯🇵 <%= @restaurant.category.capitalize %></h2>
+  <% elsif @restaurant.category == "belgian" %>
+      <h2>🇧🇪 <%= @restaurant.category.capitalize %></h2>
+  <% end %>
+  <h3><%= @restaurant.address %><h3>
+  <h3><%= @restaurant.phone_number %><h3>
+  <ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %> ⭐ <%= review.rating %></li>
+  <% end %>
+  </ul>
+  <hr>
+  <p><%= link_to "Leave a review", new_restaurant_review_path(@restaurant) %></p>
+  <hr>
+  <%= link_to "← Back to restaurant list", restaurants_path %>
+</div>

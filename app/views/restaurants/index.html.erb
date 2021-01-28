@@ -1,12 +1,23 @@
 <div class="container">
   <div class="text-center">
-  <h1 style="font-size: 30px;">Welcome to Felp!</h1>
+  <h1 style="font-size: 30px;">Welcome to Fake-Yelp</h1>
+  <h2><%= link_to "Add new restaurant", new_restaurant_path %></h2>
   </div>
   <ul style="list-style-type: none;">
   <% @restaurants.each do |restaurant| %>
     <li>
-      <h2><%= restaurant.name %></h2>
-      <h3><%= restaurant.category.capitalize %></h3>
+      <h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2>
+      <% if restaurant.category == "chinese" %>
+          <h3>🇨🇳 <%= restaurant.category.capitalize %></h3>
+      <% elsif restaurant.category == "italian" %>
+          <h3>🇮🇹 <%= restaurant.category.capitalize %></h3>
+      <% elsif restaurant.category == "french" %>
+          <h3>🇫🇷 <%= restaurant.category.capitalize %></h3>
+      <% elsif restaurant.category == "japanese" %>
+          <h3>🇯🇵 <%= restaurant.category.capitalize %></h3>
+      <% elsif restaurant.category == "belgian" %>
+          <h3>🇧🇪 <%= restaurant.category.capitalize %></h3>
+      <% end %>
       <p><%= restaurant.address %><p>
       <p><%= restaurant.phone_number %><p>
     </li>
