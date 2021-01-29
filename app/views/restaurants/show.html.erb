@@ -19,7 +19,7 @@
   <% end %>
   </ul>
   <hr>
-  <p><%= link_to "Leave a review", new_restaurant_review_path(@restaurant) %></p>
+  <p><% render "/restaurants/#{@restaurant}/reviews/new" %></p>
   <hr>
   <%= link_to "← Back to restaurant list", restaurants_path %>
 </div>
